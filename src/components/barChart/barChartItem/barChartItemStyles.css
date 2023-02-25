@@ -1,0 +1,70 @@
+.barChartItem {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+.barChartItemLogoWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 21rem;
+  border-right: 0.6rem solid black;
+  padding: 1rem;
+}
+.barChartItemDescription {
+  font-size: 3rem;
+  font-weight: 700;
+}
+.barChartItemOptions {
+  display: flex;
+  padding: 0.2rem;
+}
+.barChartItemIcon {
+  width: 4rem;
+  height: 4rem;
+}
+
+.barChartItemScaleWrapper {
+  display: flex;
+  align-items: center;
+}
+.barChartItemScale {
+  background-color: gray;
+  border: 0.1rem solid black;
+  height: 4rem;
+  margin-right: 1rem;
+}
+
+.minimalScale {
+  background-color: green;
+}
+.barChartItemScaleDescription {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .barChart {
+    align-items: flex-end;
+  }
+  .barChartItem {
+    flex-direction: column-reverse;
+  }
+  .barChartItemLogoWrapper {
+    flex-direction: column-reverse;
+    min-width: 5rem;
+    width: 100%;
+    border-right: none;
+    border-top: 0.6rem solid black;
+    min-height: 4rem;
+  }
+  .barChartItemDescriptionWrapper {
+    min-height: 8rem;
+  }
+  .barChartItemScaleWrapper {
+    flex-direction: column-reverse;
+  }
+  .barChartItemScale {
+    margin: 0;
+  }
+}
