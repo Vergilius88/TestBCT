@@ -11,23 +11,16 @@ export interface OfferProps {
   icon: string;
 }
 
-interface SpecialOptionsProps {
-  offerName: string;
-  optionName: string;
-  optionValue: number;
-}
-
 interface OffersProps {
   offersData: OfferProps[];
-  dataForGraphic?: Object[];
-  specialOptions: SpecialOptionsProps[];
+  finalPrices: Object;
   storageVolume: string;
   transferVolume: string;
 }
+
 const initialState: OffersProps = {
   offersData: testData,
-  dataForGraphic: [],
-  specialOptions: [],
+  finalPrices: {},
   storageVolume: "0",
   transferVolume: "0",
 };
@@ -42,31 +35,13 @@ const offersSlice = createSlice({
     setTransferVolume: (state, data: PayloadAction<string>) => {
       state.transferVolume = data.payload;
     },
-    setDataForGraphic: (state, data: PayloadAction<[]>) => {
-      state.dataForGraphic = data.payload;
-    },
-    setSpecialOptions: (state, data: PayloadAction<SpecialOptionsProps>) => {
-      if (
-        state.specialOptions.find((i) => i.offerName !== data.payload.offerName)
-      ) {
-        state.specialOptions = [...state.specialOptions, ...[data.payload]];
-      } else
-        state.specialOptions = state.specialOptions.map((i) => {
-          if (i.offerName === data.payload.offerName) {
-            return (i = data.payload);
-          } else {
-            return i;
-          }
-        });
+    setFinalPrices: (state, data: PayloadAction<{}>) => {
+      state.finalPrices = { ...state.finalPrices, ...data.payload };
     },
   },
 });
 
-export const {
-  setStorageVolume,
-  setTransferVolume,
-  setDataForGraphic,
-  setSpecialOptions,
-} = offersSlice.actions;
+export const { setStorageVolume, setTransferVolume, setFinalPrices } =
+  offersSlice.actions;
 
 export default offersSlice.reducer;

@@ -1,4 +1,3 @@
-// import { storageVolume, transferVolume } from "../../../app/offersPage/offersPageSelector"
 import { useSelector } from "react-redux"
 import { setStorageVolume, setTransferVolume } from "../../../app/offersPage/offersPageSlice"
 import { RootState } from "../../../app/store"

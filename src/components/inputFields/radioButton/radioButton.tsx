@@ -4,7 +4,7 @@ interface Props {
     name: string
     label: string
     cost: number
-    checked:boolean,
+    checked: boolean,
     setValue: React.Dispatch<React.SetStateAction<{
         name: string,
         value: number
@@ -15,7 +15,14 @@ export const RadioButton = ({ name, label, cost, checked, setValue }: Props) => 
 
     return (
         <label className="radioButtonWrapper">
-            <input className="radioButton" type="radio" value={cost} onChange={e => { setValue({ name: name, value: +e.target.value }) }} name={name} checked={checked} />
+            <input
+                className="radioButton"
+                type="radio"
+                value={cost}
+                onChange={e => { setValue({ name: label, value: +e.target.value }) }}
+                name={name}
+                checked={checked}
+            />
             {label}
         </label>
 

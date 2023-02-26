@@ -1,9 +1,13 @@
-import { configureStore, ThunkAction, Action, combineReducers } from '@reduxjs/toolkit';
-import offersSlice from "./offersPage/offersPageSlice"
-
+import {
+  configureStore,
+  ThunkAction,
+  Action,
+  combineReducers,
+} from "@reduxjs/toolkit";
+import offersSlice from "./offersPage/offersPageSlice";
 
 const reducer = combineReducers({
-  offers: offersSlice
+  offers: offersSlice,
 });
 
 export const store = configureStore({
